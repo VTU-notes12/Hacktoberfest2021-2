@@ -1,0 +1,87 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+  static int tot = 5;
+  static class Stack
+  {
+    int arr[];
+    int top;
+    int cap;
+      Stack ()
+    {
+      arr = new int[tot];
+        top = -1;
+        cap = tot;
+    }
+    public void push (int data)
+    {
+      if (!isFull ())
+	arr[++top] = data;
+      else
+	System.out.println ("full");
+
+    }
+    public void pop ()
+    {
+      if (isEmpty ())
+	System.out.println ("underflow");
+      else
+	--top;
+    }
+
+    public boolean isEmpty ()
+    {
+      //  return (top<0)?true:false;
+      if (top < 0)
+	return true;
+      else
+	return false;
+    }
+
+    public boolean isFull ()
+    {
+      if (top == tot - 1)
+	return true;
+      else
+	return false;
+    }
+
+    public void getElement ()
+    {
+      System.out.println (arr[top]);
+    }
+    public int findsize ()
+    {
+      return top + 1;
+    }
+    public void display ()
+    {
+      for (int i = 0; i <= top; i++)
+	System.out.print (arr[i] + " ");
+
+      System.out.println ();
+    }
+  }
+  public static void main (String[]args)
+  {
+    Stack s = new Stack ();
+    s.push (10);
+    s.push (90);
+    s.push (50);
+    s.push (40);
+    s.push (20);
+    s.push (223);
+    s.display ();
+    s.pop ();
+    s.display ();
+    s.getElement ();
+
+  }
+}
